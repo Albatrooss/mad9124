@@ -1,0 +1,16 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "My first express app!!",
+  "main": "app.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Robillard",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^3.21.2"
+  }
+}
