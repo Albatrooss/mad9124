@@ -31,6 +31,7 @@ if (process.env.NODE_ENV !== "production") {
       format: combine(label({ label: "test" }), timestamp(), colorize(), myFormat),
     })
   );
+  logger.level = 'debug'
 }
 
 module.exports = logger;

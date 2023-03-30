@@ -1,7 +1,10 @@
 "use strict";
 
 require("dotenv/config");
+const compression = require("compression");
+const cors = require("cors");
 const express = require("express");
+const helmet = require("helmet");
 const morgan = require("morgan");
 const sanitizeMongo = require("express-mongo-sanitize");
 
@@ -17,6 +20,9 @@ const app = express();
 // this just tells express to expect JSON data in the request body
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(cors());
+// app.use(helmet());
+app.use(compression());
 app.use(sanitizeMongo());
 
 app.use("/api/students", sanitizeBody, studentRouter);
@@ -29,5 +35,5 @@ app.listen(PORT, (err) => {
     logger.error(err);
     process.exit(1);
   }
-  logger.info(`Server running on port ${PORT}`);
+  logger.debug(`Server running on port ${PORT}`);
 });
