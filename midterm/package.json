@@ -1,0 +1,22 @@
+{
+  "name": "pokemonCrud",
+  "version": "1.0.0",
+  "description": "Example midterm project",
+  "main": "src/index.js",
+  "author": "Tim Robillard",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  }
+}

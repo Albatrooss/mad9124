@@ -1,0 +1,5 @@
+{"level":"error","message":"Connected to mongo mongodb://localhost:27017/students","service":"student-service","timestamp":"2023-03-27T23:54:51.579Z"}
+{"level":"error","message":"Connected to mongo mongodb://localhost:27017/students","service":"student-service","timestamp":"2023-03-27T23:56:12.487Z"}
+{"level":"error","message":"Connected to mongo mongodb://localhost:27017/students","service":"student-service","timestamp":"2023-03-27T23:56:13.258Z"}
+{"level":"error","message":"Connected to mongo mongodb://localhost:27017/students","service":"student-service","timestamp":"2023-03-27T23:56:29.927Z"}
+{"level":"error","message":"Connected to mongo mongodb://localhost:27017/students","service":"student-service","timestamp":"2023-03-27T23:56:32.787Z"}
