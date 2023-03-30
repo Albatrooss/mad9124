@@ -3,7 +3,8 @@
 require("dotenv/config");
 const express = require("express");
 const morgan = require("morgan");
-const sanitizeBody = require('./middleware/sanitizeBody');
+const sanitizeBody = require("./middleware/sanitizeBody");
+const sanitizeMongo = require("express-mongo-sanitize");
 require("./utils/db");
 
 const studentRouter = require("./router/students");
@@ -14,6 +15,7 @@ const app = express();
 // this just tells express to expect JSON data in the request body
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(sanitizeMongo());
 
 app.use("/students", sanitizeBody, studentRouter);
 
