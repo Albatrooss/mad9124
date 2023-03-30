@@ -9,6 +9,7 @@ require("./utils/db");
 
 const studentRouter = require("./router/students");
 const { errorHandler } = require("./utils/errors");
+const logger = require('./utils/logger');
 
 const app = express();
 
@@ -24,8 +25,8 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   if (err) {
-    console.error(err);
+    logger.error(err);
     process.exit(1);
   }
-  console.log(`Server running on port ${PORT}`);
+  logger.debug(`Server running on port ${PORT}`);
 });

@@ -17,6 +17,7 @@
     "express-mongo-sanitize": "^2.2.0",
     "mongoose": "^7.0.2",
     "morgan": "^1.10.0",
+    "winston": "^3.8.2",
     "xss": "^1.0.14"
   },
   "devDependencies": {
