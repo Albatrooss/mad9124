@@ -46,6 +46,7 @@ const errorHandler = (error, _req, res, _next) => {
     res.status(400).json({
       error: error.message,
     });
+    return;
   }
 
   res.status(500).json({
