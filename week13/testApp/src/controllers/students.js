@@ -15,7 +15,6 @@ const getOne = async (req, res, next) => {
     const data = await StudentService.getOne(id);
     res.json({ data });
   } catch (error) {
-    console.log("e", error);
     next(error);
   }
 };
