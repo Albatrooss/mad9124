@@ -37,6 +37,7 @@ const errorHandler = (error, _req, res, _next) => {
     res.status(400).json({
       error: error.message,
     });
+    return
   }
 
   if (error instanceof ApiError) {
