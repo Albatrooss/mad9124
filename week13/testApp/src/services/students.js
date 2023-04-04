@@ -1,6 +1,6 @@
-const createDebug = require("debug");
+"use strict";
+
 const { NotFoundError, BadRequestError } = require("../utils/errors");
-const debug = createDebug("app:studentService");
 
 const Student = require("../models/student");
 

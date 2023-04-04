@@ -6,7 +6,8 @@
   "private": false,
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
@@ -17,6 +18,7 @@
     "xss": "^1.0.14"
   },
   "devDependencies": {
+    "jest": "^29.5.0",
     "nodemon": "^2.0.20"
   }
 }
