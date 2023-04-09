@@ -32,6 +32,7 @@ const replace = async (id, newStudentData) => {
     returnOriginal: false,
   });
 
+  console.log("u", updatedStudent);
   if (!updatedStudent) {
     throw new NotFoundError(`Student with id ${id} not found`);
   }
