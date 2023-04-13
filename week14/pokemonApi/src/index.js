@@ -7,6 +7,7 @@ const MongoStore = require("connect-mongo");
 const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
+const compression = require("compression");
 const helmet = require("helmet");
 const expressSanitize = require("express-mongo-sanitize");
 
@@ -20,6 +21,7 @@ require("./utils/db");
 const app = express();
 
 app.use(helmet());
+app.use(compression());
 app.use(expressSanitize());
 app.use(
   cors({
