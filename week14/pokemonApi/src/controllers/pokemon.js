@@ -1,8 +1,9 @@
 const PokemonService = require("../services/pokemon");
 
-const getAll = async (_req, res, next) => {
+const getAll = async (req, res, next) => {
   try {
-    const pokemon = await PokemonService.getAll();
+    const { _id: ownerId } = req.user;
+    const pokemon = await PokemonService.getAll(ownerId);
     res.json({ data: pokemon });
   } catch (error) {
     next(error);
@@ -21,7 +22,13 @@ const getOne = async (req, res, next) => {
 const create = async (req, res, next) => {
   try {
     const { name, type, abilities } = req.sanitizedBody;
-    const createdPokemon = await PokemonService.create(name, type, abilities);
+    const { _id: ownerId } = req.user;
+    const createdPokemon = await PokemonService.create({
+      name,
+      type,
+      abilities,
+      ownerId,
+    });
     res.status(201).json({ data: createdPokemon });
   } catch (error) {
     next(error);
