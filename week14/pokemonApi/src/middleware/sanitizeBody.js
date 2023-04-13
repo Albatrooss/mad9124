@@ -9,9 +9,9 @@ const sanitizeString = (sourceString) =>
     stripIgnoreTagBody: ["script"],
   });
 
-const sanitzeAll = (value) => {
+const sanitizeAll = (value) => {
   if (Array.isArray(value)) {
-    return value.map(sanitzeAll);
+    return value.map(sanitizeAll);
   } else if (value instanceof Object) {
     return stripTags(value);
   } else if (typeof value === "string") {
@@ -24,7 +24,7 @@ const sanitzeAll = (value) => {
 const stripTags = (payload) => {
   const attributes = { ...payload };
   for (const key in attributes) {
-    attributes[key] = sanitzeAll(attributes[key]);
+    attributes[key] = sanitizeAll(attributes[key]);
   }
   return attributes;
 };

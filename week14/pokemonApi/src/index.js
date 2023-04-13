@@ -36,6 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", (_req, res) => res.send("Server running"));
+
 app.use("/auth", authRouter);
 app.use("/api/pokemon", sanitizeBody, pokemonRouter);
 
