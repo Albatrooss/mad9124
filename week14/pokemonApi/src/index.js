@@ -1,21 +1,33 @@
 "use strict";
 
 require("dotenv/config");
+const cors = require("cors");
 const express = require("express");
 const MongoStore = require("connect-mongo");
 const morgan = require("morgan");
 const passport = require("passport");
 const session = require("express-session");
+const helmet = require("helmet");
+const compression = require("compression");
+const sanitizeMongo = require("express-mongo-sanitize");
 
 const pokemonRouter = require("./router/pokemon");
 const { errorHandler } = require("./utils/errors");
 const authRouter = require("./router/auth");
-const sanitizeBody = require('./middleware/sanitizeBody');
+const sanitizeBody = require("./middleware/sanitizeBody");
 
 require("./utils/db");
 
 const app = express();
 
+app.use(compression());
+app.use(helmet());
+app.use(sanitizeMongo());
+app.use(
+  cors({
+    origin: process.env.CORS_WHITELIST.split(","),
+  })
+);
 app.use(express.json());
 app.use(morgan("tiny"));
 
