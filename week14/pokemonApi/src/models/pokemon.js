@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const pokemonSchema = new Schema({
   name: {
@@ -14,6 +14,11 @@ const pokemonSchema = new Schema({
       type: String,
     },
   ],
+  ownerId: {
+    type: Types.ObjectId,
+    require: true,
+    ref: 'user'
+  }
 });
 
 module.exports = model("pokemon", pokemonSchema);

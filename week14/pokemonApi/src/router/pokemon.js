@@ -6,10 +6,10 @@ const isAuthenticated = require('../middleware/isAuthenticated');
 
 const pokemonRouter = Router();
 
+pokemonRouter.use(isAuthenticated)
 pokemonRouter.get("/", PokemonController.getAll);
 pokemonRouter.get("/:id", PokemonController.getOne);
 
-pokemonRouter.use(isAuthenticated)
 pokemonRouter.post("/", PokemonController.create);
 pokemonRouter.put("/:id", PokemonController.replace);
 pokemonRouter.patch("/:id", PokemonController.update);

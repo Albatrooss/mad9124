@@ -3,8 +3,9 @@
 const Pokemon = require("../models/pokemon");
 const { BadRequestError, NotFoundError } = require("../utils/errors");
 
-const getAll = async () => {
-  const pokemon = await Pokemon.find();
+const getAll = async (ownerId) => {
+  const pokemon = await Pokemon.find({ ownerId });
+  // const pokemon = await Pokemon.find();
   return pokemon;
 };
 
@@ -14,12 +15,8 @@ const getOne = async (id) => {
   return foundPokemon;
 };
 
-const create = async (name, type, abilities) => {
-  const newPokemon = new Pokemon({
-    name,
-    type,
-    abilities,
-  });
+const create = async (pokemonData) => {
+  const newPokemon = new Pokemon(pokemonData);
   await newPokemon.save();
   return newPokemon;
 };
@@ -45,7 +42,8 @@ const replace = async (id, pokemonData) => {
 };
 
 const update = async (id, updatedFields) => {
-  if (!Object.keys(updatedFields).length) throw new BadRequestError("Nothing to update");
+  if (!Object.keys(updatedFields).length)
+    throw new BadRequestError("Nothing to update");
   const updatedPokemon = await Pokemon.findByIdAndUpdate(
     id,
     {
