@@ -2,7 +2,7 @@
 
 const { Schema, model } = require("mongoose");
 
-const userModel = new Schema(
+const userSchema = new Schema(
   {
     fullName: {
       type: String,
@@ -19,4 +19,11 @@ const userModel = new Schema(
   }
 );
 
-module.exports = model("user", userModel);
+userSchema.set("toObject", {
+  transform: (_doc, ret) => ({
+    ...ret,
+    id: ret._id.toString(),
+  }),
+});
+
+module.exports = model("user", userSchema);

@@ -12,7 +12,7 @@ const getAll = async (req, res, next) => {
 
 const getOne = async (req, res, next) => {
   try {
-    const pokemon = await PokemonService.getOne(req.params.id);
+    const pokemon = await PokemonService.getOne(req.params.id, req.user.id);
     res.json({ data: pokemon });
   } catch (error) {
     next(error);
