@@ -3,6 +3,7 @@
 const Pokemon = require("../models/pokemon");
 const { UnauthorizedError } = require("../utils/errors");
 
+// example only, not needed for final
 const isMyPokemon = async (req, res, next) => {
   const pokemon = await Pokemon.countDocuments({
     _id: req.params.id,
